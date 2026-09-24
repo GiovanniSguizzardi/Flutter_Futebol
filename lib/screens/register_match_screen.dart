@@ -190,7 +190,7 @@ class _RegisterMatchScreenState extends State<RegisterMatchScreen> {
             const SizedBox(height: 16),
 
             DropdownButtonFormField<String>(
-              value: _homeTeamId,
+              initialValue: _homeTeamId,
               decoration: const InputDecoration(
                 labelText: 'Time da casa',
                 prefixIcon: Icon(Icons.home_outlined),
@@ -214,7 +214,7 @@ class _RegisterMatchScreenState extends State<RegisterMatchScreen> {
             const SizedBox(height: 16),
 
             DropdownButtonFormField<String>(
-              value: _awayTeamId,
+              initialValue: _awayTeamId,
               decoration: const InputDecoration(
                 labelText: 'Time visitante',
                 prefixIcon: Icon(Icons.flight_takeoff_outlined),

@@ -2,23 +2,17 @@ import 'package:flutter/material.dart';
 
 import 'database/app_database.dart';
 import 'screens/main_screen.dart';
-import 'screens/team_selection_screen.dart';
-import 'services/favorite_team_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await AppDatabase.instance.database;
 
-  final favoriteTeamId = await FavoriteTeamService().getFavoriteTeamId();
-
-  runApp(BrasileiraoApp(hasFavoriteTeam: favoriteTeamId != null));
+  runApp(const BrasileiraoApp());
 }
 
 class BrasileiraoApp extends StatelessWidget {
-  final bool hasFavoriteTeam;
-
-  const BrasileiraoApp({super.key, required this.hasFavoriteTeam});
+  const BrasileiraoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +23,7 @@ class BrasileiraoApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
-      home: hasFavoriteTeam ? const MainScreen() : const TeamSelectionScreen(),
+      home: const MainScreen(),
     );
   }
 }
